@@ -1,0 +1,41 @@
+// This is a basic Flutter widget test.
+//
+// To perform an interaction with a widget in your test, use the WidgetTester
+// utility in the flutter_test package. For example, you can send tap and scroll
+// gestures. You can also use WidgetTester to find child widgets in the widget
+// tree, read text, and verify that the values of widget properties are correct.
+
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+import 'package:widget_compose/main.dart';
+import 'package:widget_compose/mocks/mock_http_service.dart';
+import 'package:widget_compose/mocks/products.dart';
+import 'package:widget_compose/port/product.dart';
+import 'package:widget_compose/repositories/product_repository.dart';
+import 'package:widget_compose/services/product_service.dart';
+
+void main() {
+  test('Get product by electronics category returns electronics products',() async {
+    final mockHttpService = MockHttpService('mock');
+    mockHttpService.returnData = [{
+      "id": 9,
+      "title": "WD 2TB Elements Portable External Hard Drive - USB 3.0 ",
+      "price": 64,
+      "description": "USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1, Windows 7; Reformatting may be required for other operating systems; Compatibility may vary depending on user’s hardware configuration and operating system",
+      "category": "electronics",
+      "image": "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg",
+      "rating": {
+        "rate": 3.3,
+        "count": 203
+      }
+    }];
+
+    final productRepository = ProductRepository(mockHttpService);
+    final productService = ProductService(productRepository);
+    final products = await productService.getByCategory('electronics');
+
+    expect(products, isNotEmpty);
+    expect(products[0].category, 'electronics');
+  });
+}
