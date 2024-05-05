@@ -47,6 +47,9 @@ class _HomePageState extends State<HomePage> {
       isLoading = false;
     });
   }
+  void onSelectProduct(ProductToDisplay product){
+    print(product.id);
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -68,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                           imageUrl: categoryImages[categories[index]]!, 
                           title: categories[index].toUpperCase(), 
                           buttonTitle:'View collection'),
-                          Catalog(products: products[index], title: 'All Product'),
+                          Catalog(products: products[index], title: 'All Product', onSelectProduct: onSelectProduct,),
                           const SizedBox(height: 24,)
                         ],
                       );
