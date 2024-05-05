@@ -12,7 +12,9 @@ class PrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-        onPressed: null,
+        onPressed: () {
+              print('button pressed!');
+            },
         style: TextButton.styleFrom(
           backgroundColor: const Color(0xFFEBEBEB),
           shape: const RoundedRectangleBorder(

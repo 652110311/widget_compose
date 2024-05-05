@@ -13,7 +13,8 @@ class ProductCard extends StatelessWidget {
     return SizedBox(
       width: 200,
       height: 240,
-      child: Stack(children: [
+      child: Stack(
+        children: [
         Image.network(product.imageUrl,width: 200, fit: BoxFit.cover,),
         Column(
           children: [
