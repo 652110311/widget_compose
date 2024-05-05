@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:widget_compose/entities/product.dart';
 
 class ProductDetailScreen extends StatefulWidget {
-  const ProductDetailScreen({super.key});
+  final ProductToDisplay product;
+  const ProductDetailScreen({super.key, required this.product});
 
   @override
   State<ProductDetailScreen> createState() => _ProductDetailScreenState();
@@ -12,10 +14,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: const Text('Product Detail')),
-        body: const SafeArea(
+        body: SafeArea(
           child: Expanded(
-            child: Center(
-              child: Text('Detail')),
+            child: Center(child: Text(widget.product.name)),
           ),
         ));
   }
