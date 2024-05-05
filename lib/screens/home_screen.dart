@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:widget_compose/di/get_it.dart';
 import 'package:widget_compose/entities/product.dart';
@@ -47,7 +48,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void onSelectProduct(ProductToDisplay product) {
-    print(product.name);
+    context.go('/detail');
   }
 
   @override
