@@ -14,7 +14,8 @@ class ProductService extends IProductService {
             category: product.category!,
             name: product.title!,
             imageUrl: product.image!,
-            price: product.price!.toDouble()))
+            price: product.price!.toDouble(),
+            description: product.description))
         .toList();
   }
 
