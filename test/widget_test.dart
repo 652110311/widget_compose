@@ -4,14 +4,8 @@
 // utility in the flutter_test package. For example, you can send tap and scroll
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:widget_compose/main.dart';
 import 'package:widget_compose/mocks/mock_http_service.dart';
-import 'package:widget_compose/mocks/products.dart';
-import 'package:widget_compose/port/product.dart';
 import 'package:widget_compose/repositories/product_repository.dart';
 import 'package:widget_compose/services/product_service.dart';
 
@@ -37,5 +31,17 @@ void main() {
 
     expect(products, isNotEmpty);
     expect(products[0].category, 'electronics');
+  });
+
+  test('get all categories', () async {
+    final mockHttpService = MockHttpService('mock');
+    mockHttpService.returnData = ["electronics","jewelery","men's clothing","women's clothing"];
+    final productRepository = ProductRepository(mockHttpService);
+    final productService = ProductService(productRepository);
+    final categories = await productService.getCategories();
+
+    expect(categories,isNotEmpty);
+    expect(categories[0], 'electronics');
+      
   });
 }
