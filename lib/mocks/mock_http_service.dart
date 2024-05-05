@@ -4,30 +4,28 @@ class MockHttpService extends HttpService {
   dynamic returnData;
   MockHttpService(super.url);
 
-
   @override
-  Future delete(String path) async{
-      return returnData;
+  Future delete(String path) async {
+    return returnData;
   }
 
   @override
   Future get(String path) async {
-      return returnData;
+    return returnData;
   }
 
   @override
-  Future patch(String path, data) async{
-      return returnData;    
+  Future patch(String path, data) async {
+    return returnData;
   }
 
   @override
-  Future post(String path, data) async{
-      return returnData;
+  Future post(String path, data) async {
+    return returnData;
   }
 
   @override
   Future put(String path, data) async {
-      return returnData;
+    return returnData;
   }
-  
 }

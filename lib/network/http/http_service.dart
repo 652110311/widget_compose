@@ -1,5 +1,4 @@
 abstract class HttpService {
-
   final String url;
 
   HttpService(this.url);

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class TextTitle extends StatelessWidget {
-
   final String title;
   final Color? color;
 
@@ -19,5 +18,4 @@ class TextTitle extends StatelessWidget {
       ),
     );
   }
-
 }

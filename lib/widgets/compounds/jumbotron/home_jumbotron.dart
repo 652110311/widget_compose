@@ -7,8 +7,12 @@ class HomeJumbotron extends StatelessWidget {
   final String title;
   final String buttonTitle;
 
-  const HomeJumbotron({super.key, required this.imageUrl, required this.title, required this.buttonTitle});
-  
+  const HomeJumbotron(
+      {super.key,
+      required this.imageUrl,
+      required this.title,
+      required this.buttonTitle});
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -24,22 +28,22 @@ class HomeJumbotron extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8),
             child: Row(
-            children: [
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    BigText(title: title),
-                    PrimaryButton(title: buttonTitle)
-                  ],
+              children: [
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      BigText(title: title),
+                      PrimaryButton(title: buttonTitle)
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),)
+              ],
+            ),
+          )
         ],
       ),
     );
   }
-
 }
