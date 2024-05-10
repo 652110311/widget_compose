@@ -48,7 +48,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   void onSelectProduct(ProductToDisplay product) {
-    context.go('/detail',extra:product);
+   
+    context.push('/detail',extra:product);
+      
   }
 
   @override

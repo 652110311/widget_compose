@@ -16,6 +16,17 @@ final goRouter = GoRouter(
   navigatorKey: _rootNavigatorKey,
   debugLogDiagnostics: true,
   routes: [
+                    GoRoute(
+                  path: '/detail',
+                  name: 'detail',
+                  parentNavigatorKey: _rootNavigatorKey,
+                  builder: (context, state) {
+                    final product = state.extra as ProductToDisplay;
+                    return ProductDetailScreen(
+                      product: product,
+                    );
+                  },
+                ),
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
         return BottomTap(navigationShell: navigationShell);
@@ -29,17 +40,17 @@ final goRouter = GoRouter(
               pageBuilder: (context, state) => const NoTransitionPage(
                 child: HomePage(),
               ),
-              routes: [
-                GoRoute(
-                  path: 'detail',
-                  builder: (context, state) {
-                    final product = state.extra as ProductToDisplay;
-                    return ProductDetailScreen(
-                      product: product,
-                    );
-                  },
-                ),
-              ],
+              // routes: [
+              //   // GoRoute(
+              //   //   path: 'detail',
+              //   //   builder: (context, state) {
+              //   //     final product = state.extra as ProductToDisplay;
+              //   //     return ProductDetailScreen(
+              //   //       product: product,
+              //   //     );
+              //   //   },
+              //   // ),
+              // ],
             ),
           ],
         ),
